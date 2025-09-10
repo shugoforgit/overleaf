@@ -1,125 +1,88 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{resume}[2015/05/25 An elegant Résumé class]
-\LoadClass[11pt]{article}
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
 
-% disable indent globally
-\setlength{\parindent}{0pt}
-% some general improvements, defines the XeTeX logo
-\RequirePackage{xltxtra}
-% use xifthen
-\RequirePackage{xifthen}
-% use progress bar for skill
-\RequirePackage{progressbar}
-% use hyperlink for email and url
-\RequirePackage{hyperref}
-\RequirePackage{url}
-\urlstyle{tt}
-% use fontawesome
-\RequirePackage{fontawesome}
-% use xcolor for customizing color
-%\RequirePackage[usenames,dvipsnames]{xcolor}
-% loading fonts
-\RequirePackage{fontspec}
-% Main document font
-\setmainfont[
-  Path = fonts/Main/ ,
-  Extension = .otf ,
-  UprightFont = *-regular ,
-  BoldFont = *-bold ,
-  ItalicFont = *-italic ,
-  BoldItalicFont = *-bolditalic ,
-  SmallCapsFont = Fontin-SmallCaps
-]{texgyretermes}
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
 
-\RequirePackage[
-	a4paper,
-	left=0.8in,
-	right=0.8in,
-	top=0.70in,
-	bottom=0.55in,
-	nohead
-]{geometry}
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
 
-\RequirePackage{titlesec}
-\RequirePackage{enumitem}
-\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
-%\setlist{nosep} % removes all vertical spacing within and around the list
-\setlist[itemize]{topsep=0.25em, leftmargin=1.5pc}
-\setlist[enumerate]{topsep=0.25em, leftmargin=1.5pc}
-\RequirePackage[super]{nth}
+\name{吴思兴}
 
-\titleformat{\section}         % Customise the \section command 
-  {\Large\scshape\raggedright} % Make the \section headers large (\Large),
-                               % small capitals (\scshape) and left aligned (\raggedright)
-  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
-  {}                           % Can be used to insert code before the heading
-  [\titlerule]                 % Inserts a horizontal line after the heading
-\titlespacing*{\section}{0cm}{*1.8}{*1.8}
+\basicInfo{
+  \email{shugoforgml@gmail.com} \textperiodcentered\ 
+  \phone{(+86) 180-6057-0063} \textperiodcentered\ 
+  }
+ 
+\section{\faGraduationCap  教育背景}
+\datedsubsection{\textbf{闽江学院}, 福州}{2017 -- 2021}
+\textit{学士}\ 软件工程
 
-\titleformat{\subsection}
-  {\large\raggedright}
-  {}{0em}
-  {}
-\titlespacing*{\subsection}{0cm}{*1.8}{*0.6}
+\section{\faUsers\ 实习/项目经历}
+\datedsubsection{\textbf{福州掌中云科技有限公司} 福州}{2021年6月 -- 2021年8月}
+\role{php后端开发}
 
-\newcommand{\datedsection}[2]{%
-  \section[#1]{#1 \hfill #2}%
-}
-\newcommand{\datedsubsection}[2]{%
-  \subsection[#1]{#1 \hfill #2}%
-}
-\newcommand{\datedline}[2]{%
-  {\par #1 \hfill #2 \par}%
-}
+\begin{itemize}
+  \item 负责微信小程序阅读平台的后端API设计与开发，保障接口的高可用性与安全性
+  \item 使用PHP进行业务逻辑开发，主要模块包括用户登录、书籍信息管理、阅读进度同步及支付接口对接
+  \item 参与前端部分页面的开发与数据渲染，实现前后端高效协作
+\end{itemize}
 
-\newcommand{\name}[1]{
-  \centerline{\Huge\scshape{#1}}
-  \vspace{1.25ex}
-}
 
-% defines one's name
-% usage: \name{<name>}
-\newcommand{\nameTest}[1]{
-  {\large\scshape{#1}}
-}
+\datedsubsection{\textbf{福州热游网络科技有限公司}}{2021年8月 -- 2025年1月}
+\role{中台、游戏服务端}
 
-% defines one's email
-% usage: \email{<email>}
-\newcommand{\email}[1]{\faEnvelope\ \href{mailto:#1}{#1}}
-% defines one's phone
-% usage: \phone{<phone>}
-\newcommand{\phone}[1]{\faPhone\ {#1}}
-% defines one's linkedin
-% usage: \linkedin{<linkedin>}
-\newcommand{\linkedin}[2][]{\faLinkedin\ 
-  \ifthenelse{\isempty{#1}}%
-    {\href{#2}{#2}}
-    {\href{#2}{#1}}}
-% defines one's GitHub
-% usage: \github{<github>}
-\newcommand{\github}[2][]{\faGithub\ 
-  \ifthenelse{\isempty{#1}}%
-    {\href{#2}{#2}}
-    {\href{#2}{#1}}}
-% defines one's homepage
-% usage: \homepage{<homepage>}
-\newcommand{\homepage}[2][]{\faLink\ 
-  \ifthenelse{\isempty{#1}}%
-    {\href{#2}{#2}}
-    {\href{#2}{#1}}}
+\begin{onehalfspacing}
+\begin{itemize}
+  \item 负责游戏中台部门技术规划与团队协作，主导游戏账服系统、数据中台及运维工具链的建设
+  \item 使用PHP重构并维护高可用游戏账服系统，稳定服务多款线上游戏
+  \item 负责基于Golang和PHP的数据统计平台与运维支持系统的功能迭代与性能维护
+  \item 与两个游戏项目后端的开发与迭代，并独立开发前端通用联想输入组件，提升了用户操作效率
+  \item 设计实现基于OAuth2的统一认证鉴权体系，解决了各平台认证方式不一的痛点，提升了内部系统安全性
+\end{itemize}
+\end{onehalfspacing}
 
-% defines progress bar with text
-% usage: \pbar[3][width]{Text}{percentage}
-\newcommand{\pbar}[3][10em]{{#2}\ 
-  \progressbar[heightr=1, width=#1, borderwidth=0pt, roundnessr=0.45, filledcolor=green!40, subdivisions=1]{#3}
-}
+\datedsubsection{\textbf{上海共识引擎网络科技有限公司}}{2025年1月 -- 至今}
+\role{后端开发}
 
-\newcommand{\basicInfo}[1]{
-  \centerline{\sffamily\large{#1}}
-  \vspace{1.5ex}
-}
+\begin{itemize}
+  \item 编写合约代码实现任意NFT上架、下架、手续费提取等基础功能
+  \item 编写合约代码实现NFT售卖,使用ReentrancyGuard防止重入,使用safeTransferFrom安全转移NFT
+  \item 根据Staking Reward算法实现质押ETH奖励分配逻辑的Farm合约，合约中存储用户质押信息和流动池信息结构
+  \item 使用OpenZeppelin的upgrades插件简化智能合约的部署和升级,安全的管理合约的升级
+  \item 编写合约部署脚本保证合约的顺序部署和合约依赖地址设置,使用upgradeProxy升级合约
+  \item 基于测试驱动开发编写单元测试确保合约稳定性和准确性
+  \item 参与了python到go微服务的迁移重构
+\end{itemize}
 
-\newcommand{\role}[2]{
-  {\par \textit{#1} ~ #2 \par}
-  \vspace{0.85ex}
-}
+
+% Reference Test
+%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
+%An xxx optimized for xxx\cite{verma2015large}
+%\begin{itemize}
+%  \item main contribution
+%\end{itemize}
+
+\section{\faCogs\ IT 技能}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item 编程语言: golang == php > solidity == python == javascript... 
+  \item 平台: linux、windows
+  \item 云平台: 腾讯云、阿里云
+\end{itemize}
+
+\section{\faInfo\ 其他}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item GitHub: https://github.com/shugoforgit
+\end{itemize}
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document}
