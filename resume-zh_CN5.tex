@@ -1,0 +1,89 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{吴思兴}
+
+\basicInfo{
+  \email{shugoforgml@gmail.com} \textperiodcentered\ 
+  \phone{(+86) 180-6057-0063} \textperiodcentered\ 
+  }
+ 
+\section{\faGraduationCap  教育背景}
+\datedsubsection{\textbf{闽江学院}, 福州}{2017 -- 2021}
+\textit{学士}\ 软件工程
+
+\section{\faUsers\ 实习/项目经历}
+\datedsubsection{\textbf{Polyverse - 多链游戏生态系统}}{2024年7月 -- 至今}
+\role{区块链后端开发}
+\textit{项目简介：基于以太坊和WAX的多链游戏生态系统，融合高质量浏览器游戏体验与Web3功能，通过PTC代币促进游戏内交易和跨链资产互通}
+
+\begin{itemize}
+  \item 基于以太坊和WAX设计跨链游戏资产管理系统，使用Solidity开发ERC-20代币合约和游戏道具NFT交易功能
+  \item 开发多链资产桥接合约，使用ReentrancyGuard防重入攻击，确保跨链资产安全转移
+  \item 实现PTC代币经济机制，支持游戏内交易、质押奖励和治理投票功能
+  \item 使用Golang构建游戏后端API服务，处理用户账户管理、游戏数据同步和链上交互逻辑
+  \item 构建自动化合约部署流水线，支持多链环境下的合约管理和升级，提升部署效率
+  \item 建立完善的测试体系，基于TDD开发模式编写单元测试，保障合约代码质量和资金安全
+  \item 参与Python微服务向Golang的技术栈迁移，优化游戏服务性能和开发效率
+\end{itemize}
+
+
+\datedsubsection{\textbf{福州热游网络科技有限公司}}{2021年8月 -- 2025年1月}
+\role{中台、游戏服务端} {golang python php linux mysql}
+
+\begin{itemize}
+  \item 负责《光之圣境》《女武神》《梦道2》等成熟游戏项目的账户服务、支付系统维护与功能迭代
+  \item 主导《龙女仆》《魔法阵》《魔法老师》《暗之回响》等4款游戏账户服务器、支付系统从0到1开发
+  \item 设计并维护游戏账户服务器，基于PHP+Nginx+MySQL+Linux架构，稳定支撑多款游戏用户认证与管理
+  \item 开发完整的游戏支付系统，集成多渠道支付接口，保障交易安全性和稳定性
+  \item 构建数据统计后台系统，采用Golang+PHP+Vue.js技术栈，为运营决策提供实时数据支持
+  \item 开发运维工具链和自动化部署系统，使用Python、Golang、Qt C++等技术，提升运维效率
+  \item 设计实现基于OAuth2的JWT统一认证鉴权体系，支持公司内部及部分外部系统的安全访问控制
+\end{itemize}
+
+\datedsubsection{\textbf{福州掌中云科技有限公司}}{2021年6月 -- 2021年8月}
+\role{php后端开发}
+
+\begin{itemize}
+  \item 负责微信小程序阅读平台的后端API设计与开发，保障接口的高可用性与安全性
+  \item 使用PHP进行业务逻辑开发，主要模块包括用户登录、书籍信息管理、阅读进度同步及支付接口对接
+  \item 参与前端部分页面的开发与数据渲染，实现前后端高效协作
+\end{itemize}
+
+
+% Reference Test
+%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
+%An xxx optimized for xxx\cite{verma2015large}
+%\begin{itemize}
+%  \item main contribution
+%\end{itemize}
+
+\section{\faCogs\ IT 技能}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item 编程语言: golang == solidity >  php == python == javascript... 
+  \item 平台: linux、windows
+  \item 云平台: 腾讯云、阿里云
+\end{itemize}
+
+\section{\faInfo\ 其他}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item GitHub: https://github.com/shugoforgit
+\end{itemize}
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document}
